@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>paskvil design</title>
+<link rel="stylesheet" href="fonts.css">
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="base.css">
+<link rel="stylesheet" href="site.css">
+<link rel="stylesheet" href="prism.css">
+<style>
+	/* specimen only */
+	.swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(9rem, 1fr)); gap: 0.75rem; max-width: none; margin: 0 0 1.5rem; }
+	.swatch { border: 1px solid var(--rule); font: 400 0.75rem/1.4 var(--mono); }
+	.swatch i { display: block; height: 3.5rem; border-bottom: 1px solid var(--rule); }
+	.swatch span { display: block; padding: 0.4rem 0.5rem; color: var(--text-strong); }
+	.swatch small { display: block; padding: 0 0.5rem 0.4rem; color: var(--text-dim); font-size: inherit; }
+	.icons { display: flex; gap: 1.5rem; }
+	.icons i { display: inline-block; width: 1.5rem; height: 1.5rem; background: var(--gold); -webkit-mask: var(--m) center / contain no-repeat; mask: var(--m) center / contain no-repeat; }
+</style>
+</head>
+<body>
+<a class="skip" href="#content">skip to content</a>
+<div class="frame">
+	<header class="masthead">
+		<a class="wordmark" href="#" aria-current="page">paskvil<span>design</span></a>
+		<nav class="external" aria-label="Elsewhere"><a href="https://www.paskvil.com">paskvil.com</a><a href="https://github.com/Paskvil/paskvil-design">github</a></nav>
+	</header>
+
+	<main id="content" class="content">
+		<p class="up">up: <a href="#">paskvil.com</a></p>
+		<header class="page-head">
+			<h1>design specimen<a class="heading-link" href="#">#</a></h1>
+			<p class="subtitle">every token, element and component of paskvil-design - see DESIGN.md for the rules</p>
+		</header>
+		<nav class="toc" aria-label="contents"><p>contents</p><ul>
+			<li><a href="#colours">colours</a></li>
+			<li><a href="#type">type</a><ul><li><a href="#lists">lists and quotes</a></li><li><a href="#code">code</a></li></ul></li>
+			<li><a href="#components">components</a></li>
+		</ul></nav>
+
+		<div class="prose">
+			<h2 id="colours">colours<a class="heading-link" href="#colours">#</a></h2>
+			<div class="swatches">
+				<div class="swatch"><i style="background: var(--prussian-deep)"></i><span>--prussian-deep</span><small>code, insets</small></div>
+				<div class="swatch"><i style="background: var(--prussian)"></i><span>--prussian</span><small>page</small></div>
+				<div class="swatch"><i style="background: var(--prussian-raised)"></i><span>--prussian-raised</span><small>inline code, hover</small></div>
+				<div class="swatch"><i style="background: var(--rule)"></i><span>--rule</span><small>every border</small></div>
+				<div class="swatch"><i style="background: var(--text-dim)"></i><span>--text-dim</span><small>meta, captions</small></div>
+				<div class="swatch"><i style="background: var(--text)"></i><span>--text</span><small>body text</small></div>
+				<div class="swatch"><i style="background: var(--text-strong)"></i><span>--text-strong</span><small>headings, code</small></div>
+				<div class="swatch"><i style="background: var(--gold)"></i><span>--gold</span><small>the accent</small></div>
+			</div>
+			<p class="icons"><i style="--m: var(--icon-copy)"></i><i style="--m: var(--icon-check)"></i><i style="--m: var(--icon-console)"></i></p>
+
+			<h2 id="type">type<a class="heading-link" href="#type">#</a></h2>
+			<p>body text is Schibsted Grotesk on <code>--text</code>, kept to <code>--measure</code>. <a href="#">links are gold</a> with a soft underline that firms up on hover, <strong>strong text goes bright</strong>, <em>italics stay quiet</em> and keys look like <kbd>ctrl</kbd> + <kbd>c</kbd></p>
+			<h3 id="lists">lists and quotes<a class="heading-link" href="#lists">#</a></h3>
+			<ul>
+				<li>headings are Martian Mono at weight 500 - an <code>h2</code> gets a rule above it</li>
+				<li>list markers are dim</li>
+			</ul>
+			<ol><li>numbered lists too</li><li>same spacing</li></ol>
+			<blockquote><p>a blockquote gets a 2px rule on the left instead of an indent</p></blockquote>
+			<dl><dt><code>--measure</code></dt><dd>definition lists, for options and terms</dd></dl>
+			<table>
+				<thead><tr><th>token</th><th>use</th></tr></thead>
+				<tbody><tr><td><code>--rule</code></td><td>borders</td></tr><tr><td><code>--gold</code></td><td>the accent</td></tr></tbody>
+			</table>
+
+			<h3 id="code">code<a class="heading-link" href="#code">#</a></h3>
+			<div class="code-wrap"><pre><code><span class="token comment">; prism colours, in the palette</span>
+<span class="token punctuation">(</span><span class="token keyword">defun</span> <span class="token function">greet</span> <span class="token punctuation">(</span>name<span class="token punctuation">)</span>
+  <span class="token punctuation">(</span><span class="token function">format</span> <span class="token boolean">t</span> <span class="token string">"hello, ~a~%"</span> name<span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre><button type="button" class="copy" aria-label="copy to clipboard"></button></div>
+			<details open>
+				<summary>collapsible sample - <code>details</code> + <code>pre</code></summary>
+				<div class="code-wrap"><pre>npm i "github:Paskvil/paskvil-design#semver:^1.0.0"</pre><button type="button" class="copy copied" aria-label="copy to clipboard"></button></div>
+			</details>
+
+			<h2 id="components">components<a class="heading-link" href="#components">#</a></h2>
+			<p>child pages are listed with <code>ul.index</code>:</p>
+			<ul class="index">
+				<li><a href="#">projects</a><span>things i built, with source</span></li>
+				<li><a href="#">library</a><span>books and notes</span></li>
+			</ul>
+			<figure>
+				<svg viewBox="0 0 400 120" width="400" height="120" role="img" aria-label="sample figure" style="display: block; max-width: 100%; height: auto; border: 1px solid var(--rule); background: var(--prussian-deep)"><path d="M20 100 L120 40 L220 70 L380 20" fill="none" stroke="var(--gold)" stroke-width="2"/></svg>
+				<figcaption>figures get a 1px rule and a dim caption</figcaption>
+			</figure>
+		</div>
+	</main>
+
+	<aside class="sitemap">
+		<details open>
+			<summary>site map</summary>
+			<ul>
+				<li><a href="#" aria-current="page">design</a>
+					<ul><li><a href="#colours" aria-current="page">colours</a></li><li><a href="#type">type</a></li><li><a href="#components">components</a></li></ul></li>
+				<li><a href="#">elsewhere</a>
+					<ul><li><a href="https://www.paskvil.com">paskvil.com</a></li></ul></li>
+			</ul>
+		</details>
+	</aside>
+
+	<footer class="colophon"><p>paskvil-design - fonts under the SIL Open Font License</p></footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,9 @@
+/* paskvil-design - Prism syntax highlighting in the palette (needs tokens.css) */
+.token.comment, .token.prolog, .token.doctype, .token.cdata { color: var(--text-dim); font-style: italic; }
+.token.punctuation { color: #8aa0b6; }
+.token.keyword, .token.important, .token.builtin, .token.atrule, .token.car, .token.attr-name { color: var(--gold); }
+.token.string, .token.char, .token.attr-value, .token.regex { color: #9fc6e0; }
+.token.number, .token.boolean, .token.symbol, .token.constant { color: #e6c27e; }
+.token.function, .token.class-name, .token.defun { color: #ffffff; }
+.token.variable, .token.parameter { color: #c6d6e6; }
+.token.operator { color: var(--text); }

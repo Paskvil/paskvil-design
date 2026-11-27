@@ -1,0 +1,30 @@
+/* paskvil-design - tokens: the stable contract, safe to use on their own (see DESIGN.md) */
+:root {
+	/* surfaces, darkest to lightest */
+	--prussian-deep: #000a12;
+	--prussian: #00111c;
+	--prussian-raised: #062033;
+	--rule: #16324a;
+
+	/* text */
+	--text-dim: #6680bf;
+	--text: #88aaff;
+	--text-strong: #e0e7f5;
+
+	/* the one accent */
+	--gold: #d6a84a;
+	--gold-soft: rgb(214 168 74 / 0.45);
+
+	--mono: "Martian Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+	--sans: "Schibsted Grotesk", system-ui, sans-serif;
+
+	--measure: 68ch;
+	--gap: clamp(1.25rem, 0.8rem + 2vw, 2.5rem);
+
+	/* icons, used as a mask and painted in a text or accent colour */
+	--icon-copy: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='8.5' y='8.5' width='12' height='12' rx='1.5'/%3E%3Cpath d='M15.5 5.5v-1a1.5 1.5 0 0 0-1.5-1.5H5a1.5 1.5 0 0 0-1.5 1.5V14A1.5 1.5 0 0 0 5 15.5h1'/%3E%3C/svg%3E");
+	--icon-check: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.25' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4.5 12.5l5 5 10-11'/%3E%3C/svg%3E");
+	--icon-console: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='2.5' y='4' width='19' height='16' rx='1.5'/%3E%3Cpath d='M7 9.5l3 2.5-3 2.5M12.5 15h4.5'/%3E%3C/svg%3E");
+
+	color-scheme: dark;
+}

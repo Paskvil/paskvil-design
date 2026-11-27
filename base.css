@@ -1,0 +1,105 @@
+/* paskvil-design - base: plain elements in a text page (needs tokens.css) */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+	margin: 0;
+	background: var(--prussian);
+	color: var(--text);
+	font: 400 1.0625rem/1.6 var(--sans);
+	font-kerning: normal;
+	text-rendering: optimizeLegibility;
+}
+a { color: var(--gold); text-decoration: underline 1px var(--gold-soft); text-underline-offset: 0.2em; }
+a:hover { text-decoration-color: var(--gold); }
+:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+strong, b { color: var(--text-strong); font-weight: 600; }
+::selection { background: var(--gold); color: var(--prussian); }
+
+/* blocks */
+p, ul, ol, dl, pre { margin: 0 0 1.1rem; }
+ul, ol { padding-left: 1.25rem; }
+li { margin-bottom: 0.35rem; }
+li::marker { color: var(--text-dim); }
+blockquote { margin: 0 0 1.1rem; padding-left: 1rem; border-left: 2px solid var(--rule); }
+blockquote > :last-child { margin-bottom: 0; }
+
+/* headings - deliberately light, the weight comes from the mono face and the rule */
+h1 {
+	font: 500 clamp(1.75rem, 1.2rem + 2vw, 2.5rem)/1.15 var(--mono);
+	font-stretch: 100%;
+	letter-spacing: -0.035em;
+	color: var(--text-strong);
+	margin: 0;
+	text-wrap: balance;
+}
+h2 {
+	font: 500 1rem/1.3 var(--mono);
+	color: var(--text-strong);
+	letter-spacing: -0.01em;
+	margin: 2.75rem 0 1rem;
+	padding-top: 1rem;
+	border-top: 1px solid var(--rule);
+}
+h3 { font: 500 1.0625rem/1.3 var(--sans); color: var(--text-strong); margin: 2rem 0 0.6rem; }
+
+/* code */
+code, pre, dt, kbd { font-family: var(--mono); }
+:not(pre) > code {
+	font-size: 0.8125em;
+	color: var(--text-strong);
+	background: var(--prussian-raised);
+	padding: 0.1em 0.3em;
+	border-radius: 2px;
+	white-space: nowrap;
+}
+pre {
+	font-size: 0.8125rem;
+	line-height: 1.65;
+	background: var(--prussian-deep);
+	border: 1px solid var(--rule);
+	padding: 1rem 1.25rem;
+	overflow-x: auto;
+	color: var(--text-strong);
+}
+kbd {
+	font-size: 0.8em;
+	padding: 0.15em 0.4em;
+	border: 1px solid var(--rule);
+	border-radius: 3px;
+	color: var(--text-strong);
+}
+
+/* definition lists */
+dl { margin-bottom: 1.5rem; }
+dt { font-size: 0.875rem; color: var(--text-strong); margin-top: 1.25rem; }
+dt code { font-size: 1em; background: none; padding: 0; }
+dd { margin: 0.3rem 0 0 1.5rem; }
+
+/* figures */
+figure { margin: 2rem 0; }
+figure img { display: block; max-width: 100%; height: auto; border: 1px solid var(--rule); }
+/* images in a row, each at most its natural size, shrinking to fit; wraps on narrow screens */
+figure.pair { display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: flex-start; }
+figure.pair img { flex: 1 1 8rem; min-width: 0; max-width: max-content; }
+figure.pair figcaption { flex-basis: 100%; }
+figcaption { margin-top: 0.6rem; font-size: 0.875rem; color: var(--text-dim); max-width: var(--measure); }
+
+/* tables */
+table { border-collapse: collapse; margin: 0 0 1.1rem; font-size: 0.9375rem; }
+th, td { text-align: left; padding: 0.4rem 1rem 0.4rem 0; border-bottom: 1px solid var(--rule); vertical-align: top; }
+th { font: 500 0.8125rem/1.3 var(--mono); color: var(--text-strong); }
+
+@media (max-width: 52rem) {
+	/* long inline code may break on phones rather than run off the screen */
+	:not(pre) > code { white-space: normal; overflow-wrap: anywhere; }
+	/* two equal columns, so a lone last image doesn't come out bigger than the rest */
+	figure.pair { display: grid; grid-template-columns: 1fr 1fr; }
+	/* exactly three images: one row of three, not 2 + an orphan */
+	figure.pair:has(> img:nth-of-type(3)):not(:has(> img:nth-of-type(4))) { grid-template-columns: repeat(3, 1fr); }
+	figure.pair img { width: 100%; max-width: none; }
+	figure.pair figcaption { grid-column: 1 / -1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+	* { scroll-behavior: auto !important; }
+}
