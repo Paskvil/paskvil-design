@@ -40,6 +40,7 @@ use the tokens, not their values. text sizes are rem, 0.75-1.1875rem in body cop
 | `base.css` | plain elements: body, links, headings, lists, blockquote, code, `kbd`, tables, figures | tokens |
 | `site.css` | layout and components of the content sites (frame, masthead, site map, colophon, `.prose`, code samples, copy button, heading links, ToC, `ul.index`) | tokens, base |
 | `prism.css` | Prism syntax colours | tokens |
+| `site.js` | behaviour for `site.css`: site map folding, copy buttons, `#` heading links | site.css |
 
 a content site takes all of them. a full screen app takes `fonts.css` + `tokens.css` and builds its own chrome in the same spirit - mono labels, 1px rules, gold for the active tool
 
@@ -63,10 +64,11 @@ a content site takes all of them. a full screen app takes `fonts.css` + `tokens.
 </div>
 ```
 
-- below 52rem the site map folds into its `<details>` under the masthead. a small script should keep it closed there and open on wide screens
+- below 52rem the site map folds into its `<details>` under the masthead. `site.js` keeps it closed there and open on wide screens
 - in `.prose`, text keeps `--measure` while `pre`, `details`, `figure` and `.code-wrap` take the full column. to let another element go wide, override it: `.prose > my-demo { max-width: 50rem }`
-- collapsible code: `<details><summary>label</summary><pre>…</pre></details>`
-- copy button and `#` heading links are added by the page's script: wrap a `pre` in `.code-wrap` and append `button.copy` (add `.copied` for 1.5s after copying), append `a.heading-link` with `#` to headings that have an id
+- collapsible code: `<details><summary>label</summary><pre>…</pre></details>` - for long, optional listings (full config files, alternative setups) so the page stays readable. in markdown, leave a blank line after `<summary>…</summary>` so the code block inside is still parsed
+- `site.js` adds the copy buttons (wraps each `pre` in `.code-wrap` with a `button.copy`) and the `#` heading links (`a.heading-link` on the `h1` and every `.prose` heading with an id). which code blocks get a button: `data-copy` on the script tag, default `.prose pre`
+- the `#` links come from the script on purpose - in the HTML they'd end up in generated tables of contents and search indexes
 - `figure.pair` puts images in a row
 - `ul.index` lists child pages, a `span` after the link holds the blurb
 

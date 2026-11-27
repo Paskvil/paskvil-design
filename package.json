@@ -1,15 +1,18 @@
 {
   "name": "paskvil-design",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "paskvil design system - tokens, fonts and CSS of paskvil.com",
   "repository": "github:Paskvil/paskvil-design",
+  "license": "BSD-2-Clause",
   "files": [
     "*.css",
+    "*.js",
     "fonts/",
     "DESIGN.md"
   ],
   "exports": {
     "./*.css": "./*.css",
+    "./*.js": "./*.js",
     "./fonts/*": "./fonts/*",
     "./package.json": "./package.json"
   }

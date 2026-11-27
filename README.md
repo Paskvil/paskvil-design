@@ -7,10 +7,10 @@ design system of [paskvil.com](https://www.paskvil.com) - tokens, self-hosted fo
 with npm, pinned to a release tag:
 
 ```sh
-npm i "github:Paskvil/paskvil-design#semver:^1.0.0"
+npm i "github:Paskvil/paskvil-design#semver:^1.1.0"
 ```
 
-then copy `node_modules/paskvil-design/{*.css,fonts}` into the built site and link the layers you need, in this order:
+then copy `node_modules/paskvil-design/{*.css,*.js,fonts}` into the built site and link the layers you need, in this order:
 
 ```html
 <link rel="stylesheet" href="/design/fonts.css">
@@ -20,11 +20,17 @@ then copy `node_modules/paskvil-design/{*.css,fonts}` into the built site and li
 <link rel="stylesheet" href="/design/prism.css">
 ```
 
+and for the content sites' behaviour (site map folding, copy buttons, `#` heading links), at the end of `<body>`:
+
+```html
+<script src="/design/site.js" data-copy=".prose pre"></script>
+```
+
 in Eleventy:
 
 ```js
 eleventyConfig.addPassthroughCopy({
-	"node_modules/paskvil-design/*.css": "design",
+	"node_modules/paskvil-design/*.{css,js}": "design",
 	"node_modules/paskvil-design/fonts/*.woff2": "design/fonts",
 });
 ```
@@ -39,4 +45,4 @@ without npm (a plain static app), add it as a git submodule and link the files f
 
 ## license
 
-the fonts are under the SIL Open Font License, see `fonts/OFL-*.txt`
+BSD 2-Clause, see `LICENSE`. the fonts are under the SIL Open Font License, see `fonts/OFL-*.txt`
